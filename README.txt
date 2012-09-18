@@ -11,11 +11,11 @@ E-mail: mtarng@gmail.com
 Estimated number of hours: 10
 Actual    number of hours:
 
-Partner First Name:
-Partner Last Name:
-Partner EID:
-Partner E-mail:
-Partner Estimated number of hours:
+Partner First Name: Bryan
+Partner Last Name: Vuong
+Partner EID: bkv85
+Partner E-mail: vuong.bryan@gmail.com
+Partner Estimated number of hours: 12
 Partner Actual    number of hours:
 
 Turnin CS Username:
