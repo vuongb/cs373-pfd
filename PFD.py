@@ -18,33 +18,38 @@ def pfd_read (r, a) :
     return true if that succeeds, false otherwise
     """
     s = r.readline()
+    assert s != ""
     if s == "" :
         return False
     l = s.split()
     for item in l:
         a.append(int(item))
-    for item in a:
-        assert item > 0
     return True
 # -------------
 # pfd_print
 # -------------
 
-def collatz_print (w, listOrder) :
+def pfd_print (w, listOrder) :
     """
     prints the values contained in listOrder
     w is a writer
     listOrder is a list of the topologically sorted task numbers
     """
-    for item in listOrder:
-        w.write(str(item) + " ")
-    w.write("\n")
+    
+    for i in range(len(listOrder)-1):
+
+        assert listOrder[i] > 0
+        
+        if (i == len(listOrder)-1):
+            w.write(str(listOrder[i]))
+        else:
+            w.write(str(listOrder[i]) + " ")
 
 # ------------
 # pfd_eval
 # ------------
 
-def collatz_eval (a) :
+def pfd_eval (a) :
     """
     
     """
@@ -52,10 +57,10 @@ def collatz_eval (a) :
 
 
 # -------------
-# collatz_solve
+# pfd_solve
 # -------------
 
-def collatz_solve (r, w) :
+def pfd_solve (r, w) :
     """ 
     read loop, eval, print
     r is a reader
