@@ -73,13 +73,14 @@ class TestPFD (unittest.TestCase) :
     # eval
     # ----
 
-##    def test_eval_1 (self) :
-##        n = 50000
-##        preCompArray = [0]*n
-##        collatz_createCache(50000, preCompArray)
-##        v = collatz_eval(1, 10, preCompArray)
-##        self.assert_(v == 20)
-##
+	def test_eval_1 (self) :
+		a = [1,2]
+		listOrder.append(a)
+		a = [3,4,5]
+		listOrder.append(a)
+		pfd_eval(listOrder)
+        #self.assert_(v == 20)
+
 ##    def test_eval_2 (self) :
 ##        n = 50000
 ##        preCompArray = [0]*n
@@ -126,13 +127,13 @@ class TestPFD (unittest.TestCase) :
 
     def test_print_3 (self) :
         w = StringIO.StringIO()
-        a = [201, 210, 89, -1, -2, -100, 500]
+        a = [201, 210, 89, 1, 2, 100, 500]
         pfd_print(w, a)
-        self.assert_(w.getvalue() == "201 210 89 -1 -2 -100 500")
+        self.assert_(w.getvalue() == "201 210 89 1 2 100 500")
 
     def test_print_4 (self) :
         w = StringIO.StringIO()
-        a = [900, 1000, 174]
+        a = [900, 1000, 174, 41, 87, 5, 2]
         pfd_print(w, a)
         self.assert_(w.getvalue() == "900 1000 174 41 87 5 2")
         

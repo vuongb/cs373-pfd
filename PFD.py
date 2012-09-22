@@ -10,6 +10,7 @@
 # pfd_read
 # ------------
 
+
 def pfd_read (r, a) :
     """
     reads ints into a
@@ -36,9 +37,9 @@ def pfd_print (w, listOrder) :
     listOrder is a list of the topologically sorted task numbers
     """
     
-    for i in range(len(listOrder)-1):
+    for i in range(len(listOrder)):
 
-        assert listOrder[i] > 0
+	assert listOrder[i] > 0
         
         if (i == len(listOrder)-1):
             w.write(str(listOrder[i]))
@@ -49,12 +50,25 @@ def pfd_print (w, listOrder) :
 # pfd_eval
 # ------------
 
-def pfd_eval (a) :
-    """
-    
-    """
-    
 
+def pfd_eval (a, w) :
+    """
+    a is an array of array with all values read in
+    """
+    adjMatrix = []
+    taskNum = (a[0])[0]
+    lineNum = (a[0])[1]
+    
+    assert taskNum > 0
+    assert lineNum > 0
+
+    for i in range(taskNum):
+        relations = [0]*taskNum
+        adjMatrix.append(relations)
+
+	for i in range(1, lineNum
+
+            
 
 # -------------
 # pfd_solve
