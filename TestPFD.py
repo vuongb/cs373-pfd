@@ -73,12 +73,20 @@ class TestPFD (unittest.TestCase) :
     # eval
     # ----
 
-	def test_eval_1 (self) :
-		a = [1,2]
-		listOrder.append(a)
-		a = [3,4,5]
-		listOrder.append(a)
-		pfd_eval(listOrder)
+    def test_eval_1 (self) :
+        w = StringIO.StringIO()
+        listOrder = []
+        a = [5,4]
+        listOrder.append(a)
+        a = [3,2,1,5]
+        listOrder.append(a)
+        a = [2,2,5,3]
+        listOrder.append(a)
+        a = [4,1,3]
+        listOrder.append(a)
+        a = [5,1,1]
+        listOrder.append(a)
+        pfd_eval(listOrder,w)
         #self.assert_(v == 20)
 
 ##    def test_eval_2 (self) :
