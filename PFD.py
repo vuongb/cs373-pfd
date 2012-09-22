@@ -72,7 +72,7 @@ def pfd_eval (a, w) :
     adjMatrix = []
     for i in range(taskNum):
         relations = [0]*taskNum  #populating the matrix with 0's (replace with 1 if there is a relation)
-        pprint(relations)
+#        pprint(relations)
         adjMatrix.append(relations)
     
     #Populates the value of adjMatrix
@@ -90,8 +90,8 @@ def pfd_eval (a, w) :
             asdf = adjMatrix[val-1]
             fdsa = asdf[rel-1]
             (adjMatrix[val-1])[rel-1] = 1 #change the relationship value to 1
-    print("Adjacency Matrix: ")
-    pprint(adjMatrix)
+#    print("Adjacency Matrix: ")
+#    pprint(adjMatrix)
         
     #Now to solve
     #4 Steps:
@@ -99,9 +99,61 @@ def pfd_eval (a, w) :
     #2 Select lowest value from list and add to answer
     #3 Remove all prereqs of this value
     #4 Repeat Steps 1-3 until answer is fully populated
+    
+    answer = []
+    while (len(answer) < taskNum):
+        poss = []
+        #Step 1:
+        for i in range(taskNum):
+            hasPre = False
+            for j in range(taskNum):
+                if ((adjMatrix[i])[j] == 1):
+                    hasPre = True;
+                    break
+            if (hasPre == False): #Does not have prereq
+                poss.append(i+1)
+        
+#        print("Debug 1: \n")
+#        pprint(answer)
+#        pprint(poss)
+     
+        pfd_present(poss, answer) #removes used answers from next
 
-# -----------
-# 
+        #Step 2:
+        min = poss[0]
+        for i in range(len(poss)):
+            if (poss[i] < min):
+                min = poss[i]
+        answer.append(min)
+
+
+        #Step 3:
+        for i in range(taskNum):
+            (adjMatrix[i])[min-1] = 0
+
+    print("Answer list: ")
+    pprint(answer)    
+
+# -------------
+# pfd_present
+# -------------
+def pfd_present(n, a) :
+    """
+    Checks if a value is already in 'a'
+    Removes it from 'n', if it is present
+    """
+    assert len(a) >= 0
+#    print "Len a: %d " % (len(a)) 
+    assert len(n) >= 0
+#    print "Len n: %s " % (str(len(n)))
+    count = 0
+    while count < len(a):
+        for i in range(len(n)):
+            if (a[count] == n[i]):
+                n.pop(i)
+                break; 
+        count += 1
+
 
 
 # -------------
