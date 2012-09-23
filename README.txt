@@ -24,6 +24,8 @@ GitHub Repository Name: cs373-pfd
 
 Comments:
 
+Python 2.7
+
 ----------------
 Pair Programming
 ----------------

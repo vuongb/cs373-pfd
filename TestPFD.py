@@ -20,7 +20,7 @@ To test the program:
 import StringIO
 import unittest
 
-from PFD import pfd_read, pfd_eval, pfd_print, pfd_solve
+from PFD import pfd_read, pfd_eval, pfd_print, pfd_solve, pfd_present
 
 # -----------
 # TestPFD
@@ -74,7 +74,6 @@ class TestPFD (unittest.TestCase) :
     # ----
 
     def test_eval_1 (self) :
-        w = StringIO.StringIO()
         listOrder = []
         a = [5,4]
         listOrder.append(a)
@@ -86,36 +85,45 @@ class TestPFD (unittest.TestCase) :
         listOrder.append(a)
         a = [5,1,1]
         listOrder.append(a)
-        pfd_eval(listOrder,w)
-        #self.assert_(v == 20)
+        l = pfd_eval(listOrder)
+        assert l[0] == 1
+        assert l[1] == 5
+        assert l[2] == 3
+        assert l[3] == 2
+        assert l[4] == 4
+        assert len(l) == 5   
 
-##    def test_eval_2 (self) :
-##        n = 50000
-##        preCompArray = [0]*n
-##        collatz_createCache(50000, preCompArray)
-##        v = collatz_eval(100, 200, preCompArray)
-##        self.assert_(v == 125)
-##
-##    def test_eval_3 (self) :
-##        n = 50000
-##        preCompArray = [0]*n
-##        collatz_createCache(50000, preCompArray)
-##        v = collatz_eval(201, 210, preCompArray)
-##        self.assert_(v == 89)
-##
-##    def test_eval_4 (self) :
-##        n = 50000
-##        preCompArray = [0]*n
-##        collatz_createCache(50000, preCompArray)
-##        v = collatz_eval(900, 1000, preCompArray)
-##        self.assert_(v == 174)
-##        
-##    def test_eval_5 (self) :
-##        n = 50000
-##        preCompArray = [0]*n
-##        collatz_createCache(50000, preCompArray)
-##        v = collatz_eval(972699, 998031, preCompArray)
-##        self.assert_(v == 440)
+    def test_eval_2 (self) :
+        listOrder = []
+        a = [3, 2]
+        listOrder.append(a)
+        a = [1, 2, 2, 3]
+        listOrder.append(a)
+        a = [2, 1 3]
+        listOrder.append(a)
+        l = pfd_eval(listOrder)
+        assert l[0] == 3
+        assert l[1] == 2
+        assert l[2] == 1
+        assert len(l) == 3
+
+    def test_eval_3 (self) :
+        listOrder = []
+        a = [4, 3]
+        listOrder.append(a)
+        a = [1, 1, 3]
+        listOrder.append(a)
+        a = [2, 1, 1]
+        listOrder.append(a)
+        a = [4, 2, 2, 3]
+        listOrder.append(a)
+        l = pfd_eval(listOrder)
+        assert l[0] == 3
+        assert l[1] == 1
+        assert l[2] == 2
+        assert l[3] == 4
+        assert len(l) == 4
+        
 
     # -----
     # print
@@ -157,29 +165,62 @@ class TestPFD (unittest.TestCase) :
     # solve
     # -----
 
-##    def test_solve_1 (self) :
-##        r = StringIO.StringIO("1 10\n100 200\n201 210\n900 1000\n")
-##        w = StringIO.StringIO()
-##        collatz_solve(r, w)
-##        self.assert_(w.getvalue() == "1 10 20\n100 200 125\n201 210 89\n900 1000 174\n")
-##
-##    def test_solve_2 (self) :
-##        r = StringIO.StringIO("43423 32909\n11900 20067\n201 210\n6988 45692\n")
-##        w = StringIO.StringIO()
-##        collatz_solve(r, w)
-##        self.assert_(w.getvalue() == "43423 32909 324\n11900 20067 279\n201 210 89\n6988 45692 324\n")
-##
-##    def test_solve_3 (self) :
-##        r = StringIO.StringIO("1 2\n10 2\n")
-##        w = StringIO.StringIO()
-##        collatz_solve(r, w)
-##        self.assert_(w.getvalue() == "1 2 2\n10 2 20\n")
-##
-##    def test_solve_4 (self) :
-##        r = StringIO.StringIO("63500 798004\n3209 689943\n293 38\n888888 999999\n")
-##        w = StringIO.StringIO()
-##        collatz_solve(r, w)
-##        self.assert_(w.getvalue() == "63500 798004 509\n3209 689943 509\n293 38 128\n888888 999999 507\n")
+    def test_solve_1 (self) :
+        r = StringIO.StringIO("5 4\n3 2 1 5\n2 2 5 3\n4 1 3\n5 1 1")
+        w = StringIO.StringIO()
+        pfd_solve(r, w)
+        self.assert_(w.getvalue() == "1 5 3 2 4")
+
+    def test_solve_2 (self) :
+        r = StringIO.StringIO("3 2\n1 2 2 3\n2 1 3")
+        w = StringIO.StringIO()
+        collatz_solve(r, w)
+        self.assert_(w.getvalue() == "3 2 1")
+
+    def test_solve_3 (self) :
+        r = StringIO.StringIO("4 3\n1 1 3\n2 1 1\n4 2 2 3")
+        w = StringIO.StringIO()
+        collatz_solve(r, w)
+        self.assert_(w.getvalue() == "3 1 2 4")
+
+
+    # -----
+    # present
+    # -----    
+
+
+    def test_present_1 (self) :
+        a = [5, 4, 2]
+        b = [1, 2, 5, 6]
+        pfd_present(b,a)
+        assert b[0] == 1
+        assert b[1] == 6
+        assert len(b) == 2
+
+    def test_present_2 (self) :
+        a = [5, 4, 2, 3, 6]
+        b = [1,2,5,6]
+        pfd_present(b,a)
+        assert b[0] == 1
+        assert len(b) == 1
+
+    def test_present_3 (self) :
+        a = [500, 400, 200]
+        b = [1, 2, 5, 6]
+        pfd_present(b,a)
+        assert b[0] == 1
+        assert b[1] == 2
+        assert b[2] == 5
+        assert b[3] == 6
+        assert len(b) == 4
+
+    def test_present_4 (self) :
+        a = [5, 4, 2, 1, 6]
+        b = [1, 2, 5, 6]
+        pfd_present(b,a)
+        assert len(b) == 0
+        
+
 
 # ----
 # main

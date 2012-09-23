@@ -90,8 +90,8 @@ def pfd_eval (a) :
         for k in range(2, 2 + num):
             rel = curr[k] #relationship (prerequisite) for val
             #debugging
-            asdf = adjMatrix[val-1]
-            fdsa = asdf[rel-1]
+#            asdf = adjMatrix[val-1]
+#            fdsa = asdf[rel-1]
             (adjMatrix[val-1])[rel-1] = 1 #change the relationship value to 1
 #    print("Adjacency Matrix: ")
 #    pprint(adjMatrix)
