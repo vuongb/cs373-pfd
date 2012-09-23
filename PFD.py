@@ -6,7 +6,7 @@
 # Glenn P. Downing
 # ---------------------------
 
-from pprint import pprint #used to printout matrix (debugging)
+#from pprint import pprint #used to printout matrix (debugging)
 
 
 # ------------
@@ -22,7 +22,7 @@ def pfd_read (r, a) :
     return true if that succeeds, false otherwise
     """
     s = r.readline()
-    assert s != ""
+    #assert s != ""
     if s == "" :
         return False
     l = s.split()
@@ -87,8 +87,8 @@ def pfd_eval (a, w) :
         for k in range(2, 2 + num):
             rel = curr[k] #relationship (prerequisite) for val
             #debugging
-            asdf = adjMatrix[val-1]
-            fdsa = asdf[rel-1]
+#            asdf = adjMatrix[val-1]
+#            fdsa = asdf[rel-1]
             (adjMatrix[val-1])[rel-1] = 1 #change the relationship value to 1
 #    print("Adjacency Matrix: ")
 #    pprint(adjMatrix)
@@ -131,8 +131,9 @@ def pfd_eval (a, w) :
         for i in range(taskNum):
             (adjMatrix[i])[min-1] = 0
 
-    print("Answer list: ")
-    pprint(answer)    
+#    print("Answer list: ")
+#    pprint(answer)
+    return answer
 
 # -------------
 # pfd_present
@@ -171,5 +172,5 @@ def pfd_solve (r, w) :
     while pfd_read(r, a):
         lineArray.append(a)
         a = []
-    l = pfd_eval(lineArray)
+    l = pfd_eval(lineArray, w)
     pfd_print(w, l)
