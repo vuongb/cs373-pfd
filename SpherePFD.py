@@ -1,39 +1,5 @@
 #!/usr/bin/env python
 
-# ------------------------------
-# projects/collatz/RunCollatz.py
-# Copyright (C) 2012
-# Glenn P. Downing
-# -------------------------------
-
-"""
-To run the program
-    % python RunCollatz.py < RunCollatz.in > RunCollatz.out
-    % chmod ugo+x RunCollatz.py
-    % RunCollatz.py < RunCollatz.in > RunCollatz.out
-
-To document the program
-    % pydoc -w Collatz
-"""
-
-# -------
-# imports
-# -------
-
-import sys
-
-from PFD import pfd_solve
-
-# ----
-# main
-# ----
-
-pfd_solve(sys.stdin, sys.stdout)
-
-
-
-#!/usr/bin/env python
-
 # ---------------------------
 # projects/pfd/PFD.py
 # Copyright (C) 2012
@@ -63,6 +29,9 @@ def pfd_read (r, a) :
     for item in l:
         a.append(int(item))
     return True
+
+
+
 # -------------
 # pfd_print
 # -------------
@@ -88,7 +57,7 @@ def pfd_print (w, listOrder) :
 # ------------
 
 
-def pfd_eval (a, w) :
+def pfd_eval (a) :
     """
     a is an array of array with all values read in
     """
@@ -121,8 +90,8 @@ def pfd_eval (a, w) :
         for k in range(2, 2 + num):
             rel = curr[k] #relationship (prerequisite) for val
             #debugging
-#            asdf = adjMatrix[val-1]
-#            fdsa = asdf[rel-1]
+            asdf = adjMatrix[val-1]
+            fdsa = asdf[rel-1]
             (adjMatrix[val-1])[rel-1] = 1 #change the relationship value to 1
 #    print("Adjacency Matrix: ")
 #    pprint(adjMatrix)
@@ -206,8 +175,41 @@ def pfd_solve (r, w) :
     while pfd_read(r, a):
         lineArray.append(a)
         a = []
-    l = pfd_eval(lineArray, w)
+    l = pfd_eval(lineArray)
     pfd_print(w, l)
 
 
 
+
+
+#!/usr/bin/env python
+
+# ------------------------------
+# projects/collatz/RunCollatz.py
+# Copyright (C) 2012
+# Glenn P. Downing
+# -------------------------------
+
+"""
+To run the program
+    % python RunCollatz.py < RunCollatz.in > RunCollatz.out
+    % chmod ugo+x RunCollatz.py
+    % RunCollatz.py < RunCollatz.in > RunCollatz.out
+
+To document the program
+    % pydoc -w Collatz
+"""
+
+# -------
+# imports
+# -------
+
+import sys
+
+#from PFD import pfd_solve
+
+# ----
+# main
+# ----
+
+pfd_solve(sys.stdin, sys.stdout)
