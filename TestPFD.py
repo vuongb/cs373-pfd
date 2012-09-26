@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
 # -------------------------------
-# projects/collatz/TestCollatz.py
+# projects/collatz/TestPFD.py
 # Copyright (C) 2012
-# Glenn P. Downing
+# Michael Tarng & Bryan Vuong
 # -------------------------------
 
 """

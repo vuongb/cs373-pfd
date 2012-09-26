@@ -3,7 +3,7 @@
 # ---------------------------
 # projects/pfd/PFD.py
 # Copyright (C) 2012
-# Glenn P. Downing
+# Michael Tarng & Bryan Vuong
 # ---------------------------
 
 #from pprint import pprint #used to printout matrix (debugging)

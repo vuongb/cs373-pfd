@@ -3,7 +3,7 @@
 # ---------------------------
 # projects/pfd/PFD.py
 # Copyright (C) 2012
-# Glenn P. Downing
+# Michael Tarng & Bryan Vuong
 # ---------------------------
 
 #from pprint import pprint #used to printout matrix (debugging)
@@ -89,6 +89,9 @@ def pfd_eval (a) :
         assert num > 0
         for k in range(2, 2 + num):
             rel = curr[k] #relationship (prerequisite) for val
+            #Make sure the given relationship is valid
+            assert rel > 0
+            assert rel <= 100
             #debugging
 #            asdf = adjMatrix[val-1]
 #            fdsa = asdf[rel-1]

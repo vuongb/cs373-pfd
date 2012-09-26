@@ -1,19 +1,19 @@
 #!/usr/bin/env python
 
 # ------------------------------
-# projects/collatz/RunCollatz.py
+# projects/collatz/RunPFD.py
 # Copyright (C) 2012
-# Glenn P. Downing
+# Michael Tarng & Bryan Vuong
 # -------------------------------
 
 """
 To run the program
-    % python RunCollatz.py < RunCollatz.in > RunCollatz.out
+    % python RunCollatz.py < RunPFD.in > RunPFD.out
     % chmod ugo+x RunCollatz.py
-    % RunCollatz.py < RunCollatz.in > RunCollatz.out
+    % RunPFD.py < RunPFD.in > RunPFD.out
 
 To document the program
-    % pydoc -w Collatz
+    % pydoc -w PFD
 """
 
 # -------
