@@ -9,16 +9,16 @@ Last Name: Tarng
 EID: mt22239
 E-mail: mtarng@gmail.com
 Estimated number of hours: 10
-Actual    number of hours:
+Actual    number of hours: 9
 
 Partner First Name: Bryan
 Partner Last Name: Vuong
 Partner EID: bkv85
 Partner E-mail: vuong.bryan@gmail.com
 Partner Estimated number of hours: 12
-Partner Actual    number of hours:
+Partner Actual    number of hours: 9
 
-Turnin CS Username:
+Turnin CS Username: mtarng
 GitHub ID: vuongb
 GitHub Repository Name: cs373-pfd
 
