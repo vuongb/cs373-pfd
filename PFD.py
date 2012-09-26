@@ -48,7 +48,7 @@ def pfd_print (w, listOrder) :
         assert listOrder[i] > 0
         
         if (i == len(listOrder)-1):
-            w.write(str(listOrder[i]))
+            w.write(str(listOrder[i]) + "\n")
         else:
             w.write(str(listOrder[i]) + " ")
 
@@ -86,7 +86,7 @@ def pfd_eval (a) :
         
         #Make sure values are positive
         assert val > 0
-        assert num > 0
+        assert num >= 0
         for k in range(2, 2 + num):
             rel = curr[k] #relationship (prerequisite) for val
             #Make sure the given relationship is valid

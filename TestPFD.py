@@ -99,7 +99,7 @@ class TestPFD (unittest.TestCase) :
         listOrder.append(a)
         a = [1, 2, 2, 3]
         listOrder.append(a)
-        a = [2, 1 3]
+        a = [2, 1, 3]
         listOrder.append(a)
         l = pfd_eval(listOrder)
         assert l[0] == 3
@@ -174,13 +174,13 @@ class TestPFD (unittest.TestCase) :
     def test_solve_2 (self) :
         r = StringIO.StringIO("3 2\n1 2 2 3\n2 1 3")
         w = StringIO.StringIO()
-        collatz_solve(r, w)
+        pfd_solve(r, w)
         self.assert_(w.getvalue() == "3 2 1")
 
     def test_solve_3 (self) :
         r = StringIO.StringIO("4 3\n1 1 3\n2 1 1\n4 2 2 3")
         w = StringIO.StringIO()
-        collatz_solve(r, w)
+        pfd_solve(r, w)
         self.assert_(w.getvalue() == "3 1 2 4")
 
 

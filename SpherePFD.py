@@ -48,7 +48,7 @@ def pfd_print (w, listOrder) :
         assert listOrder[i] > 0
         
         if (i == len(listOrder)-1):
-            w.write(str(listOrder[i]))
+            w.write(str(listOrder[i]) + "\n")
         else:
             w.write(str(listOrder[i]) + " ")
 
@@ -69,7 +69,7 @@ def pfd_eval (a) :
     
     #Make sure both taskNum and lineNum will be positive
     assert taskNum > 0
-    assert lineNum > 0
+    assert lineNum >= 0
 
     #Builds the adjacency matrix
     adjMatrix = []
@@ -86,12 +86,15 @@ def pfd_eval (a) :
         
         #Make sure values are positive
         assert val > 0
-        assert num > 0
+        assert num >= 0
         for k in range(2, 2 + num):
             rel = curr[k] #relationship (prerequisite) for val
+            #Make sure the given relationship is valid
+            assert rel > 0
+            assert rel <= 100
             #debugging
-            asdf = adjMatrix[val-1]
-            fdsa = asdf[rel-1]
+#            asdf = adjMatrix[val-1]
+#            fdsa = asdf[rel-1]
             (adjMatrix[val-1])[rel-1] = 1 #change the relationship value to 1
 #    print("Adjacency Matrix: ")
 #    pprint(adjMatrix)
@@ -177,39 +180,38 @@ def pfd_solve (r, w) :
         a = []
     l = pfd_eval(lineArray)
     pfd_print(w, l)
-
-
-
-
-
-#!/usr/bin/env python
-
-# ------------------------------
-# projects/collatz/RunCollatz.py
-# Copyright (C) 2012
-# Glenn P. Downing
-# -------------------------------
-
-"""
-To run the program
-    % python RunCollatz.py < RunCollatz.in > RunCollatz.out
-    % chmod ugo+x RunCollatz.py
-    % RunCollatz.py < RunCollatz.in > RunCollatz.out
-
-To document the program
-    % pydoc -w Collatz
-"""
-
+    
 # -------
 # imports
 # -------
 
-import sys
-
-#from PFD import pfd_solve
+import sys 
+import StringIO
 
 # ----
 # main
 # ----
+a = sys.stdin
+stringArray = []
+arrayArray = []
+s = ""
+counter = 1
+for line in sys.stdin :
+    if line.rstrip() :
+        stringArray.append(line)
+    else :
+        arrayArray.append(stringArray)
+#        for i in stringArray:
+#            s += i
+#        pfd_solve(StringIO.StringIO(s), sys.stdout)
+#        s = ""
+        stringArray = []
 
-pfd_solve(sys.stdin, sys.stdout)
+if stringArray:
+    arrayArray.append(stringArray)
+
+for i in arrayArray:
+    for j in i:
+        s += j
+    pfd_solve(StringIO.StringIO(s), sys.stdout)
+    s = ""
