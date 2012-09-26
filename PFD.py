@@ -69,7 +69,7 @@ def pfd_eval (a) :
     
     #Make sure both taskNum and lineNum will be positive
     assert taskNum > 0
-    assert lineNum > 0
+    assert lineNum >= 0
 
     #Builds the adjacency matrix
     adjMatrix = []
