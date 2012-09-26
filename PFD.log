@@ -1,0 +1,101 @@
+commit 61a56d46020f3cdea7512ddc3c560cb8a56cfc37
+Author: mtarng <mtarng@gmail.com>
+Date:   Wed Sep 26 15:55:21 2012 -0500
+
+    Added pydoc file. Updated README.txt for submission
+
+commit a8f10857e009d8232e65952334c6212ac33836a2
+Author: mtarng <mtarng@gmail.com>
+Date:   Wed Sep 26 15:54:58 2012 -0500
+
+    Added pydoc file. Updated README.txt for submission
+
+commit 368e51f03112e41d845c93b64c82ba4e976d97ae
+Author: mtarng <mtarng@gmail.com>
+Date:   Wed Sep 26 15:50:05 2012 -0500
+
+    All acceptance tests added and are working correctly. SpherePFD also accepted by Sphere. RunPFD.py accepts and runs multiple tests
+
+commit 4be5d47418780fc553b728b195c067c24925b56b
+Author: mtarng <mtarng@gmail.com>
+Date:   Wed Sep 26 12:53:49 2012 -0500
+
+    added an assert for number of lines >= 0
+
+commit b00ef572bd65949a6d62b22cca845a697375678f
+Author: mtarng <mtarng@gmail.com>
+Date:   Wed Sep 26 12:27:05 2012 -0500
+
+    Added assert to test for valid relationships. Also modified header comments for files
+
+commit 60a0adc2dce83dfed4d867aa5f8d18cf015e6b19
+Author: Bryan Vuong <vuong.bryan@gmail.com>
+Date:   Sun Sep 23 18:43:14 2012 -0500
+
+    Added Unit Tests for eval,solve,present
+    
+    Also added python version number to ReadMe
+
+commit 6c748c25a2a9c57cdd76396088711c5d2182b81e
+Author: Bryan Vuong <vuong.bryan@gmail.com>
+Date:   Sun Sep 23 18:10:35 2012 -0500
+
+    Sphere Accepted
+    
+    Sphere accepted adjacency matrix solution
+    
+    Correct Answer
+
+commit a798d4454ee47c6390b4934bef2b8064354feffa
+Author: Bryan Vuong <vuong.bryan@gmail.com>
+Date:   Sun Sep 23 17:30:43 2012 -0500
+
+    Writer compliant
+    
+    Runtime error on Sphere. Runs fine with Run Collatz
+
+commit e3328a0bbd2b6493128dbd0b5c85b3330242b293
+Author: mtarng <mtarng@gmail.com>
+Date:   Sat Sep 22 18:53:01 2012 -0500
+
+    Correct answer from pfd_eval, but needs to pass answer to writer, w. Needs unit tests
+
+commit f7223f27ea995d45c648103b65412acac0742e5c
+Author: mtarng <mtarng@gmail.com>
+Date:   Sat Sep 22 17:47:08 2012 -0500
+
+    Populated Adjacency Matrix in pfd_eval
+
+commit 8623c3b024ecab2e0922f1b5bf01a7c3ea6682e9
+Author: mtarng <mtarng@gmail.com>
+Date:   Sat Sep 22 15:58:30 2012 -0500
+
+    f this shit
+
+commit 077d5f464898b4b97fdcbc82d612914af6617b52
+Author: Bryan Vuong <vuong.bryan@gmail.com>
+Date:   Thu Sep 20 14:24:23 2012 -0500
+
+    Added/Fixed Unit Tests for print and read
+    
+    Read succeeds; Print fails
+
+commit 42f935bdb570b2e058a96e9befb53fc555c8ed34
+Author: Bryan Vuong <vuong.bryan@gmail.com>
+Date:   Tue Sep 18 01:41:46 2012 -0500
+
+    Finished pfd_read, pfd_print, pfd_solve for PFD.py
+
+commit dfafff6696433e6cd3465b68b264a3f92b317a09
+Author: Bryan Vuong <vuong.bryan@gmail.com>
+Date:   Tue Sep 18 01:38:01 2012 -0500
+
+    Finished README, Added Files
+    
+    Added RunPFD Input test
+
+commit f2871a918f75311b6c2efcc7476a2cb93c528495
+Author: mtarng <mtarng@gmail.com>
+Date:   Tue Sep 18 00:29:20 2012 -0500
+
+    first commit with partial README.txt
